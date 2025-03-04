@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .a-primary {
+    @apply text-black decoration-0 hover:text-red-500;
+  }
+
+  .textWriter {
+    @apply overflow-hidden whitespace-nowrap border-r-2 border-solid border-r-white tracking-normal;
+  }
+
+  input:focus + span,
+  input:not(:placeholder-shown) + span {
+    @apply left-2 top-0 text-sm leading-normal text-red-500 opacity-[1] transition-all duration-[0.2s] ease-ease;
+  }
+}
