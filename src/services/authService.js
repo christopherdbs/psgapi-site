@@ -12,10 +12,7 @@ const AuthService = {
       requestOptions.body = JSON.stringify(credentials);
     }
     try {
-      const response = await fetch(
-        `${`${baseUrl}/auth/login`}`,
-        requestOptions
-      );
+      const response = await fetch("/auth/login", requestOptions);
       const body = await response.json();
 
       if (response.status > 399) {
@@ -46,10 +43,7 @@ const AuthService = {
       },
     };
     try {
-      const response = await fetch(
-        `${`${baseUrl}/auth/logout`}`,
-        requestOptions
-      );
+      const response = await fetch("/auth/logout", requestOptions);
       const body = await response.json();
       if (response.status > 399) {
         return {
@@ -72,7 +66,7 @@ const AuthService = {
 
   checkAuthStatus: async () => {
     try {
-      const fetchResponse = await fetch(`${`${baseUrl}/auth/check`}`);
+      const fetchResponse = await fetch("/auth/check");
       const response = await fetchResponse.json();
       return {
         success: response.isAuthenticated,

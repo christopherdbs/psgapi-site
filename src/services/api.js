@@ -1,5 +1,3 @@
-let baseUrl = import.meta.env.VITE_BASE_URL;
-
 export async function signup(values) {
   const requestOptions = {
     method: "POST",
@@ -12,10 +10,7 @@ export async function signup(values) {
     requestOptions.body = JSON.stringify(values);
   }
   try {
-    const response = await fetch(
-      `${`${baseUrl}/auth/register`}`,
-      requestOptions
-    );
+    const response = await fetch("/auth/register", requestOptions);
     const body = await response.json();
     if (response.status > 300) {
       return {
@@ -48,10 +43,7 @@ export async function resendToken() {
     },
   };
   try {
-    const response = await fetch(
-      `${`${baseUrl}/account/resendToken`}`,
-      requestOptions
-    );
+    const response = await fetch("/account/resendToken", requestOptions);
     const res = await response.json();
     return res;
   } catch (e) {
@@ -72,7 +64,7 @@ export async function requestAPI(url) {
   };
 
   try {
-    const response = await fetch(`${`${baseUrl}/api/${url}`}`, requestOptions);
+    const response = await fetch(`${`/api/${url}`}`, requestOptions);
     if (response.status > 399) {
       const body = await response.json();
       return {
