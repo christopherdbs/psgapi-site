@@ -4,10 +4,11 @@ import { useAuth } from "../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const { login } = useAuth();
-
+  const navigate = useNavigate();
   let schema = yup.object().shape({
     email: yup.string().min(5).max(40).email().required("Email is required"),
     password: yup.string().required("Password is required").min(8),
@@ -29,6 +30,7 @@ function Login() {
       toast.error(response.message);
     } else {
       toast.success(response.message);
+      navigate("/account");
     }
   }
 

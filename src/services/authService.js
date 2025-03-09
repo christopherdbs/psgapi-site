@@ -1,4 +1,3 @@
-const baseUrl = import.meta.env.VITE_BASE_URL;
 const AuthService = {
   login: async (credentials) => {
     const requestOptions = {
