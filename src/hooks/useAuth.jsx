@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
         setIsAuthenticated(false);
       }
       return {
-        success: response.isAuthenticated,
+        success: response.success,
         message: response.message,
       };
     } catch (e) {
