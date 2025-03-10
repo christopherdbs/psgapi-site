@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
     try {
       const response = await AuthService.checkAuthStatus();
 
-      if (response.status === 200) {
+      if (response.success) {
         setIsAuthenticated(true);
       } else {
         Cookies.remove("isAuthenticated");
